@@ -48,6 +48,17 @@ import SignUp from "layouts/authentication/sign-up";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
+import {logout, userTypes} from "./helpers";
+import { useNavigate } from "react-router-dom";
+
+const LogOut = () => {
+  logout();
+  const navigate = useNavigate();
+  navigate('/authentication/sign-in')
+  return (
+    <></>
+  )
+};
 
 const routes = [
   {
@@ -57,6 +68,7 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/dashboard",
     component: <Dashboard />,
+    roles: [userTypes.normaUser]
   },
   {
     type: "collapse",
@@ -65,6 +77,7 @@ const routes = [
     icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/rdashboard",
     component: <Rdashboard />,
+    roles: [userTypes.rescueUser]
   },
   {
     type: "collapse",
@@ -73,6 +86,7 @@ const routes = [
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/tables",
     component: <Tables />,
+    roles: [userTypes.all]
   },
   {
     type: "collapse",
@@ -81,15 +95,16 @@ const routes = [
     icon: <Icon fontSize="small">receipt_long</Icon>,
     route: "/billing",
     component: <Billing />,
+    roles: [userTypes.normaUser]
   },
-  {
-    type: "collapse",
-    name: "RTL",
-    key: "rtl",
-    icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
-    route: "/rtl",
-    component: <RTL />,
-  },
+  // {
+  //   type: "collapse",
+  //   name: "RTL",
+  //   key: "rtl",
+  //   icon: <Icon fontSize="small">format_textdirection_r_to_l</Icon>,
+  //   route: "/rtl",
+  //   component: <RTL />,
+  // },
   {
     type: "collapse",
     name: "Notifications",
@@ -97,6 +112,7 @@ const routes = [
     icon: <Icon fontSize="small">notifications</Icon>,
     route: "/notifications",
     component: <Notifications />,
+    roles: [userTypes.all]
   },
   {
     type: "collapse",
@@ -105,6 +121,7 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
+    roles: [userTypes.all]
   },
   {
     type: "collapse",
@@ -113,6 +130,7 @@ const routes = [
     icon: <Icon fontSize="small">login</Icon>,
     route: "/authentication/sign-in",
     component: <SignIn />,
+    roles: [userTypes.guest]
   },
   {
     type: "collapse",
@@ -121,6 +139,16 @@ const routes = [
     icon: <Icon fontSize="small">assignment</Icon>,
     route: "/authentication/sign-up",
     component: <SignUp />,
+    roles: [userTypes.guest]
+  },
+  {
+    type: "collapse",
+    name: "Log Out",
+    key: "logout",
+    icon: <Icon fontSize="small">login</Icon>,
+    route: "/logout",
+    component: <LogOut />,
+    roles: [userTypes.normaUser, userTypes.rescueUser]
   },
 ];
 

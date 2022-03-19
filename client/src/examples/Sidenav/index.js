@@ -46,6 +46,7 @@ import {
   setTransparentSidenav,
   setWhiteSidenav,
 } from "context";
+import {getUserData, userTypes} from "../../helpers";
 
 function Sidenav({ color, brand, brandName, routes, ...rest }) {
   const [controller, dispatch] = useMaterialUIController();
@@ -84,6 +85,15 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
   }, [dispatch, location]);
 
   // Render all the routes from the routes.js (All the visible items on the Sidenav)
+  const userrole = getUserData()?.role ?? userTypes.guest;
+  routes = routes.filter((route) => {
+
+    if (route.roles.includes(userrole) || route.roles.includes(userTypes.all)){
+      return true;
+    }
+    return false;
+  })
+
   const renderRoutes = routes.map(({ type, name, icon, title, noCollapse, key, href, route }) => {
     let returnValue;
 
@@ -161,15 +171,15 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </MDTypography>
         </MDBox>
         <MDBox component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && <MDBox component="img" src={brand} alt="Brand" width="2rem" />}
-          <MDBox
-            width={!brandName && "100%"}
-            sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}
-          >
-            <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>
-              {brandName}
-            </MDTypography>
-          </MDBox>
+          {brand && <MDBox component="img" src={brand} alt="Brand" width="11rem" />}
+          {/*<MDBox*/}
+          {/*  width={!brandName && "100%"}*/}
+          {/*  sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}*/}
+          {/*>*/}
+          {/*  <MDTypography component="h6" variant="button" fontWeight="medium" color={textColor}>*/}
+          {/*    {brandName}*/}
+          {/*  </MDTypography>*/}
+          {/*</MDBox>*/}
         </MDBox>
       </MDBox>
       <Divider
@@ -179,19 +189,19 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
         }
       />
       <List>{renderRoutes}</List>
-      <MDBox p={2} mt="auto">
-        <MDButton
-          component="a"
-          href="https://www.creative-tim.com/product/material-dashboard-pro-react"
-          target="_blank"
-          rel="noreferrer"
-          variant="gradient"
-          color={sidenavColor}
-          fullWidth
-        >
-          upgrade to pro
-        </MDButton>
-      </MDBox>
+      {/*<MDBox p={2} mt="auto">*/}
+      {/*  <MDButton*/}
+      {/*    component="a"*/}
+      {/*    href="https://www.creative-tim.com/product/material-dashboard-pro-react"*/}
+      {/*    target="_blank"*/}
+      {/*    rel="noreferrer"*/}
+      {/*    variant="gradient"*/}
+      {/*    color={sidenavColor}*/}
+      {/*    fullWidth*/}
+      {/*  >*/}
+      {/*    upgrade to pro*/}
+      {/*  </MDButton>*/}
+      {/*</MDBox>*/}
     </SidenavRoot>
   );
 }

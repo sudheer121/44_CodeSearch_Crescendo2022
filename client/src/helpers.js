@@ -12,7 +12,9 @@ const routes = {
 
 export const userTypes = {
   'rescueUser': 'rescue-user',
-  'normaUser': 'normal-user'
+  'normaUser': 'normal-user',
+  'all': 'all',
+  'guest': 'guest'
 };
 
 export const userMaps = {
@@ -47,6 +49,10 @@ const getHelper = (route, token = getToken()) => ({
 
 const setToken = (token) => {
   localStorage.setItem('auth-token', token);
+};
+
+export const logout = () => {
+  localStorage.removeItem('user-data');
 };
 
 export const setUserData = (data) => {
