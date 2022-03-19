@@ -1,10 +1,15 @@
 import axios from 'axios';
-import {userMaps, setUserData} from "./helpers";
+import {userMaps, setUserData, baseRoute} from "./helpers";
 
 export const apiClient = axios.create({
-  baseURL: 'http://localhost:8000',
-  withCredentials: true,
+  baseURL: baseRoute,
+  // withCredentials: true,
 });
+
+export const getPets = async () => {
+  let res = await apiClient.get('/pets');
+  return res.data;
+};
 
 export const loginClient = (email, password) => {
   const data = userMaps[email];

@@ -1,9 +1,9 @@
 
-const baseRoute = 'http://localhost:8000/api';
+export const baseRoute = 'http://localhost:8000';
 
 const routes = {
-  userLogin: `${baseRoute}/login`,
-  userRegister: `${baseRoute}/register`,
+  userLogin: `${baseRoute}/api/login`,
+  userRegister: `${baseRoute}/api/register`,
   userProfile: `${baseRoute}/user`,
   adminLogin: `${baseRoute}/admin/login`,
   adminRegister: `${baseRoute}/admin/register`,

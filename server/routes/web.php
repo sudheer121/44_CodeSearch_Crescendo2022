@@ -21,12 +21,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'organizations'], function (Router $router) {
+Route::group([
+    'prefix' => 'organizations'
+
+], function (Router $router) {
     $router->get('/', [OrganizationController::class,'index']);
 });
 
 
-Route::group(['prefix' => 'pets'], function (Router $router) {
+Route::group(['prefix' => 'pets', 'middleware' => 'cors'], function (Router $router) {
     $router->get('/', [PetProfileController::class,'index']);
 });
 

@@ -17,7 +17,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->name(),
-            'description' => $this->faker->paragraph(),
+            'description' => $this->faker->sentence(),
             'pet_profile_id' => PetProfile::query()->inRandomOrder()->first()->id,
             'image_url' => $this->faker->url(),
         ];

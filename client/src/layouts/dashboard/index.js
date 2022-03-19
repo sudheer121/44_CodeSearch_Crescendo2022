@@ -12,6 +12,7 @@ Coded by www.creative-tim.com
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
+import { useState, useEffect} from "react";
 
 // @mui material components
 import Grid from "@mui/material/Grid";
@@ -34,6 +35,31 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 // Dashboard components
 import Projects from "layouts/dashboard/components/Projects";
 import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
+import {getPets} from "../../apiclient";
+import PostCard from "../../components/PostCard/PostCard";
+
+function Posts() {
+  const [pets, setPets] = useState([]);
+  useEffect(async ()=>{
+    const data = await getPets();
+    setPets(data);
+  },[]);
+
+  return (
+    <>
+      <MDBox mt={4.5}>
+        <Grid container spacing={3}>
+          { pets.map((pet, index)=>{
+              return (
+                <PostCard key={index} image_url={pet.image_url} title={pet.name} description={pet.description}/>
+              )
+            })
+          }
+        </Grid>
+      </MDBox>
+    </>
+  );
+}
 
 function Dashboard() {
   const { sales, tasks } = reportsLineChartData;
@@ -42,68 +68,7 @@ function Dashboard() {
     <DashboardLayout>
       <DashboardNavbar />
       <MDBox py={3}>
-        {/* <Grid container spacing={3}>
-        //   <Grid item xs={12} md={6} lg={3}>
-        //     <MDBox mb={1.5}>
-        //       <ComplexStatisticsCard
-        //         color="dark"
-        //         icon="weekend"
-        //         title="Bookings"
-        //         count={281}
-        //         percentage={{
-        //           color: "success",
-        //           amount: "+55%",
-        //           label: "than lask week",
-        //         }}
-        //       />
-        //     </MDBox>
-        //   </Grid>
-        //   <Grid item xs={12} md={6} lg={3}>
-        //     <MDBox mb={1.5}>
-        //       <ComplexStatisticsCard
-        //         icon="leaderboard"
-        //         title="Today's Users"
-        //         count="2,300"
-        //         percentage={{
-        //           color: "success",
-        //           amount: "+3%",
-        //           label: "than last month",
-        //         }}
-        //       />
-        //     </MDBox>
-        //   </Grid>
-        //   <Grid item xs={12} md={6} lg={3}>
-        //     <MDBox mb={1.5}>
-        //       <ComplexStatisticsCard
-        //         color="success"
-        //         icon="store"
-        //         title="Revenue"
-        //         count="34k"
-        //         percentage={{
-        //           color: "success",
-        //           amount: "+1%",
-        //           label: "than yesterday",
-        //         }}
-        //       />
-        //     </MDBox>
-        //   </Grid>
-        //   <Grid item xs={12} md={6} lg={3}>
-        //     <MDBox mb={1.5}>
-        //       <ComplexStatisticsCard
-        //         color="primary"
-        //         icon="person_add"
-        //         title="Followers"
-        //         count="+91"
-        //         percentage={{
-        //           color: "success",
-        //           amount: "",
-        //           label: "Just updated",
-        //         }}
-        //       />
-        //     </MDBox>
-        //   </Grid>
-        // </Grid> 
-      */}
+        <Posts />
         <MDBox mt={4.5}>
           <Grid container spacing={3}>
             <Grid item xs={12} md={6} lg={4}>

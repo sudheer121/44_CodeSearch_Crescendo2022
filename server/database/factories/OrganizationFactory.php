@@ -21,7 +21,7 @@ class OrganizationFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'email' => $this->faker->unique()->safeEmail(),
-            'description' => $this->faker->paragraph(),
+            'description' => $this->faker->sentence(),
             'address' => $this->faker->address(),
             'city' =>  $this->faker->city(),
             'image_url' => Helpers::getRandomFileInSubdir('organizations'), //$this->faker->image(storage_path('images/organizations'),640,480, null, false),

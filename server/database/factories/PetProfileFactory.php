@@ -20,7 +20,7 @@ class PetProfileFactory extends Factory
 
         return [
             'name' => $this->faker->name(),
-            'description' => $this->faker->paragraph(),
+            'description' => $this->faker->sentence(),
             'organization_id' => Organization::query()->inRandomOrder()->first()->id,
             'address' => $this->faker->address(),
             'city' =>  $this->faker->city(),
