@@ -59,6 +59,14 @@ const routes = [
   },
   {
     type: "collapse",
+    name: "Rescue Dashboard",
+    key: "rdashboard",
+    icon: <Icon fontSize="small">rdashboard</Icon>,
+    route: "/rdashboard",
+    component: <Dashboard />,
+  },
+  {
+    type: "collapse",
     name: "Tables",
     key: "tables",
     icon: <Icon fontSize="small">table_view</Icon>,
