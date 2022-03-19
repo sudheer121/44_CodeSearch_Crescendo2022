@@ -37,6 +37,7 @@ Coded by www.creative-tim.com
 
 // Material Dashboard 2 React layouts
 import Dashboard from "layouts/dashboard";
+import Rdashboard from "layouts/rdashboard";
 import Tables from "layouts/tables";
 import Billing from "layouts/billing";
 import RTL from "layouts/rtl";
@@ -61,9 +62,9 @@ const routes = [
     type: "collapse",
     name: "Rescue Dashboard",
     key: "rdashboard",
-    icon: <Icon fontSize="small">rdashboard</Icon>,
+    icon: <Icon fontSize="small">dashboard</Icon>,
     route: "/rdashboard",
-    component: <Dashboard />,
+    component: <Rdashboard />,
   },
   {
     type: "collapse",
