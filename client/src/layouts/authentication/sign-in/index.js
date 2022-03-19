@@ -13,10 +13,10 @@ Coded by www.creative-tim.com
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // react-router-dom components
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"
 
 // @mui material components
 import Card from "@mui/material/Card";
@@ -41,10 +41,32 @@ import BasicLayout from "layouts/authentication/components/BasicLayout";
 // Images
 import bgImage from "assets/images/bg-sign-in-basic.jpeg";
 
+import { loginClient }  from "../../../apiclient";
+import {userTypes} from "../../../helpers";
 function Basic() {
+  const navigate = useNavigate();
   const [rememberMe, setRememberMe] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleSetRememberMe = () => setRememberMe(!rememberMe);
+
+  const signInClicked = () => {
+    console.log('sign in clicked');
+    const data = loginClient(email, password);
+    console.log(data);
+    if(data.error) {
+      setError(data.error);
+    }
+    if(data.role === userTypes.normaUser){
+      navigate('/dashboard')
+    }
+    if(data.role === userTypes.rescueUser){
+      navigate('/rdashboard')
+    }
+  };
+
 
   return (
     <BasicLayout image={bgImage}>
@@ -84,11 +106,22 @@ function Basic() {
         <MDBox pt={4} pb={3} px={3}>
           <MDBox component="form" role="form">
             <MDBox mb={2}>
-              <MDInput type="email" label="Email" fullWidth />
+              <MDInput type="email"
+                       label="Email"
+                       fullWidth
+                       onChange={(e) => {setEmail(e.target.value); setError('')}}
+              />
             </MDBox>
             <MDBox mb={2}>
-              <MDInput type="password" label="Password" fullWidth />
+              <MDInput type="password"
+                       label="Password"
+                       fullWidth
+                        onChange={(e) => {setPassword(e.target.value); setError('')}}
+              />
             </MDBox>
+
+            { error ? <span style={{color:'red'}}> <p> {error} </p></span> : ''}
+
             <MDBox display="flex" alignItems="center" ml={-1}>
               <Switch checked={rememberMe} onChange={handleSetRememberMe} />
               <MDTypography
@@ -102,7 +135,12 @@ function Basic() {
               </MDTypography>
             </MDBox>
             <MDBox mt={4} mb={1}>
-              <MDButton variant="gradient" color="info" fullWidth>
+              <MDButton
+                variant="gradient"
+                color="info"
+                fullWidth
+                onClick={signInClicked}
+              >
                 sign in
               </MDButton>
             </MDBox>
