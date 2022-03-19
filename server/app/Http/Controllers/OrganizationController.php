@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Organization;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class OrganizationController extends Controller
 {
@@ -12,9 +13,9 @@ class OrganizationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): Collection
     {
-        //
+        return Organization::all();
     }
 
     /**

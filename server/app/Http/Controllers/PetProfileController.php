@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PetProfile;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class PetProfileController extends Controller
 {
@@ -12,9 +13,9 @@ class PetProfileController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): Collection
     {
-        //
+        return PetProfile::all();
     }
 
     /**

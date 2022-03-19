@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 
 class PostController extends Controller
 {
@@ -12,9 +13,9 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): Collection
     {
-        //
+        return Post::all();
     }
 
     /**

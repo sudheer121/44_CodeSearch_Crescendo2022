@@ -1,6 +1,9 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\PetProfileController;
+use App\Http\Controllers\PostController;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +21,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::group(['prefix' => 'organizations'], function (Router $router) {
+    $router->get('/', [OrganizationController::class,'index']);
+});
 
+
+Route::group(['prefix' => 'pets'], function (Router $router) {
+    $router->get('/', [PetProfileController::class,'index']);
+});
+
+Route::group(['prefix' => 'posts'], function (Router $router) {
+    $router->get('/', [PostController::class,'index']);
+});
 

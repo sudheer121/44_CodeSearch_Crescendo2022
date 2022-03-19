@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Organization;
+use App\Models\PetProfile;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PostFactory extends Factory
@@ -14,7 +16,10 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->name(),
+            'description' => $this->faker->paragraph(),
+            'pet_profile_id' => PetProfile::query()->inRandomOrder()->first()->id,
+            'image_url' => $this->faker->url(),
         ];
     }
 }

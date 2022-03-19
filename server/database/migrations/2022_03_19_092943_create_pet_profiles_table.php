@@ -21,6 +21,8 @@ class CreatePetProfilesTable extends Migration
             $table->longText('description')->nullable();
             $table->bigInteger('organization_id');
             $table->foreign('organization_id')->references('id')->on('organizations')->onDelete('cascade');
+            $table->longText('address')->nullable();
+            $table->longText('city')->nullable();
         });
     }
 

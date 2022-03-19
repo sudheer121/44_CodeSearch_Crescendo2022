@@ -28,6 +28,7 @@ class PetProfile extends Model
         'image_url',
         'description',
         'organization_id',
+        'address',
         'city'
     ];
 
