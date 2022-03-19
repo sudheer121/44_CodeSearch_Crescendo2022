@@ -48,7 +48,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone follows me
+              Email me when someone donates for me
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -58,7 +58,7 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone answers on my post
+              Email me when someone wants to adopt me
             </MDTypography>
           </MDBox>
         </MDBox>
@@ -68,45 +68,45 @@ function PlatformSettings() {
           </MDBox>
           <MDBox width="80%" ml={0.5}>
             <MDTypography variant="button" fontWeight="regular" color="text">
-              Email me when someone mentions me
+              Email me when someone initiates a chat
             </MDTypography>
           </MDBox>
         </MDBox>
-        <MDBox mt={3}>
-          <MDTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
-            application
-          </MDTypography>
-        </MDBox>
-        <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
-          <MDBox mt={0.5}>
-            <Switch checked={newLaunches} onChange={() => setNewLaunches(!newLaunches)} />
-          </MDBox>
-          <MDBox width="80%" ml={0.5}>
-            <MDTypography variant="button" fontWeight="regular" color="text">
-              New launches and projects
-            </MDTypography>
-          </MDBox>
-        </MDBox>
-        <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
-          <MDBox mt={0.5}>
-            <Switch checked={productUpdate} onChange={() => setProductUpdate(!productUpdate)} />
-          </MDBox>
-          <MDBox width="80%" ml={0.5}>
-            <MDTypography variant="button" fontWeight="regular" color="text">
-              Monthly product updates
-            </MDTypography>
-          </MDBox>
-        </MDBox>
-        <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
-          <MDBox mt={0.5}>
-            <Switch checked={newsletter} onChange={() => setNewsletter(!newsletter)} />
-          </MDBox>
-          <MDBox width="80%" ml={0.5}>
-            <MDTypography variant="button" fontWeight="regular" color="text">
-              Subscribe to newsletter
-            </MDTypography>
-          </MDBox>
-        </MDBox>
+        {/* <MDBox mt={3}>
+        //   <MDTypography variant="caption" fontWeight="bold" color="text" textTransform="uppercase">
+        //     application
+        //   </MDTypography>
+        // </MDBox>
+        // <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
+        //   <MDBox mt={0.5}>
+        //     <Switch checked={newLaunches} onChange={() => setNewLaunches(!newLaunches)} />
+        //   </MDBox>
+        //   <MDBox width="80%" ml={0.5}>
+        //     <MDTypography variant="button" fontWeight="regular" color="text">
+        //       New launches and projects
+        //     </MDTypography>
+        //   </MDBox>
+        // </MDBox>
+        // <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
+        //   <MDBox mt={0.5}>
+        //     <Switch checked={productUpdate} onChange={() => setProductUpdate(!productUpdate)} />
+        //   </MDBox>
+        //   <MDBox width="80%" ml={0.5}>
+        //     <MDTypography variant="button" fontWeight="regular" color="text">
+        //       Monthly product updates
+        //     </MDTypography>
+        //   </MDBox>
+        // </MDBox>
+        // <MDBox display="flex" alignItems="center" mb={0.5} ml={-1.5}>
+        //   <MDBox mt={0.5}>
+        //     <Switch checked={newsletter} onChange={() => setNewsletter(!newsletter)} />
+        //   </MDBox>
+        //   <MDBox width="80%" ml={0.5}>
+        //     <MDTypography variant="button" fontWeight="regular" color="text">
+        //       Subscribe to newsletter
+        //     </MDTypography>
+        //   </MDBox>
+        // </MDBox> */}
       </MDBox>
     </Card>
   );
