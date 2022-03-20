@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {userMaps, setUserData, baseRoute} from "./helpers";
+import {userMaps, setUserData, baseRoute, getUserData} from "./helpers";
 
 export const apiClient = axios.create({
   baseURL: baseRoute,
@@ -10,6 +10,12 @@ export const getPets = async () => {
   let res = await apiClient.get('/pets');
   return res.data;
 };
+
+export const getOrgPets = async () => {
+  const email = getUserData().email;
+  let res = await apiClient.get(`/pets/org/${email}`);
+  return res.data;
+}
 
 export const getPet = async (id) => {
   let res = await apiClient.get(`/pets/${id}`);

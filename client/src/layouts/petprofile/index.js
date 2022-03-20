@@ -82,8 +82,8 @@ function Overview() {
                 title="profile information"
                 description={data?.description ?? ''}
                 info={{
-                  organization: data?.organization?.name,
-                  email: data?.organization?.email,
+                  city: data?.city,
+                  address: data?.address,
                   // location: "USA",
                 }}
                 action={{ route: "", tooltip: "Edit Profile" }}
@@ -108,6 +108,9 @@ function Overview() {
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
                     {data?.organization?.description ?? ''}
+                  </Typography>
+                  <Typography variant="body3" color="text.secondary">
+                    {data?.organization?.email ?? ''}
                   </Typography>
                 </CardContent>
               </Card>

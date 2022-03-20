@@ -82,12 +82,12 @@ const routes = [
   },
   {
     type: "collapse",
-    name: "Tables",
+    name: "Pet Profiles",
     key: "tables",
     icon: <Icon fontSize="small">table_view</Icon>,
     route: "/tables",
     component: <Tables />,
-    roles: [userTypes.all]
+    roles: [userTypes.rescueUser]
   },
   {
     type: "collapse",
