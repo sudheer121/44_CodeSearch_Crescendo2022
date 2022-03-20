@@ -113,7 +113,7 @@ const routes = [
     icon: <Icon fontSize="small">notifications</Icon>,
     route: "/notifications",
     component: <Notifications />,
-    roles: [userTypes.all]
+    roles: [userTypes.rescueUser]
   },
   {
     type: "collapse",
@@ -122,7 +122,7 @@ const routes = [
     icon: <Icon fontSize="small">person</Icon>,
     route: "/profile",
     component: <Profile />,
-    roles: [userTypes.all]
+    roles: [userTypes.rescueUser, userTypes.normaUser]
   },
   {
     type: "collapse",
