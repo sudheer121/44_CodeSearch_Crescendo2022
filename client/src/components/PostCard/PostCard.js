@@ -6,8 +6,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {baseRoute} from "../../helpers";
+import Link from "@mui/material/Link";
 
-export default function PostCard({ image_url, title, description}) {
+export default function PostCard({ image_url, title, description, linkto}) {
   //const  = props;
   return (
     <Card sx={{ maxWidth: 345, m:1 }}>
@@ -19,7 +20,9 @@ export default function PostCard({ image_url, title, description}) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {title}
+          <Link href={linkto ?? ''}>
+            {title}
+          </Link>
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {description}

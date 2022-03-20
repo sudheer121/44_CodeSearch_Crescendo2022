@@ -85,6 +85,13 @@ const getUserType = () => {
   }
 };
 
+export const getImg = (slug) => {
+  if(!slug) {
+    return null;
+  }
+  return `${baseRoute}/${slug}`;
+}
+
 const displayMappings = {
   user: ['dashboard', 'upload', 'profile'],
   admin: ['dashboard', 'requests', 'profile'],

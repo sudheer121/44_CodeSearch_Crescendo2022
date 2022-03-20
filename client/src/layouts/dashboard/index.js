@@ -51,7 +51,13 @@ function Posts() {
         <Grid container spacing={3}>
           { pets.map((pet, index)=>{
               return (
-                <PostCard key={index} image_url={pet.image_url} title={pet.name} description={pet.description}/>
+                <PostCard
+                  key={index}
+                  image_url={pet.image_url}
+                  title={pet.name}
+                  description={pet.description}
+                  linkto={`/pet-profile/${pet.id}`}
+                />
               )
             })
           }

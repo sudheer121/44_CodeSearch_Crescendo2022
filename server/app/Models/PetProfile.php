@@ -34,11 +34,11 @@ class PetProfile extends Model
 
     public function organization()
     {
-        $this->belongsTo(Organization::class);
+        return $this->belongsTo(Organization::class);
     }
 
     public function posts()
     {
-        $this->hasMany(Post::class);
+        return $this->hasMany(Post::class);
     }
 }

@@ -11,6 +11,11 @@ export const getPets = async () => {
   return res.data;
 };
 
+export const getPet = async (id) => {
+  let res = await apiClient.get(`/pets/${id}`);
+  return res.data;
+};
+
 export const loginClient = (email, password) => {
   const data = userMaps[email];
   if(!data) {

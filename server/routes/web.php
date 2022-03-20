@@ -23,7 +23,6 @@ Route::get('/', function () {
 
 Route::group([
     'prefix' => 'organizations'
-
 ], function (Router $router) {
     $router->get('/', [OrganizationController::class,'index']);
 });
@@ -31,6 +30,7 @@ Route::group([
 
 Route::group(['prefix' => 'pets', 'middleware' => 'cors'], function (Router $router) {
     $router->get('/', [PetProfileController::class,'index']);
+    $router->get('/{id}', [PetProfileController::class, 'show']);
 });
 
 Route::group(['prefix' => 'posts'], function (Router $router) {

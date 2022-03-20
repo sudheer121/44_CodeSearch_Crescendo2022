@@ -70,6 +70,13 @@ export default styled(Avatar)(({ theme, ownerState }) => {
         fontSize: fontSize.md,
       };
       break;
+    case "pet-profile":
+      sizeValue = {
+        width: 300,
+        height: 200,
+        fontSize: fontSize.md,
+      };
+      break;
     default: {
       sizeValue = {
         width: pxToRem(48),

@@ -33,6 +33,6 @@ class Post extends Model
 
     public function profile()
     {
-        $this->belongsTo(PetProfile::class);
+        return $this->belongsTo(PetProfile::class);
     }
 }

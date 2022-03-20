@@ -45,9 +45,9 @@ class PetProfileController extends Controller
      * @param  \App\Models\PetProfile  $petProfile
      * @return \Illuminate\Http\Response
      */
-    public function show(PetProfile $petProfile)
+    public function show(string $id): PetProfile
     {
-        //
+        return PetProfile::query()->with(['organization', 'posts'])->find((int)$id);
     }
 
     /**

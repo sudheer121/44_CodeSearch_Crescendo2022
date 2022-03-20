@@ -45,6 +45,7 @@ import Notifications from "layouts/notifications";
 import Profile from "layouts/profile";
 import SignIn from "layouts/authentication/sign-in";
 import SignUp from "layouts/authentication/sign-up";
+import PetProfile from "./layouts/petprofile";
 
 // @mui icons
 import Icon from "@mui/material/Icon";
@@ -150,6 +151,14 @@ const routes = [
     component: <LogOut />,
     roles: [userTypes.normaUser, userTypes.rescueUser]
   },
+  {
+    type: "collapse",
+    name: "Pet Profile",
+    key: "pet-profile",
+    route: "/pet-profile/:id",
+    component: <PetProfile />,
+    roles: []
+  }
 ];
 
 export default routes;
