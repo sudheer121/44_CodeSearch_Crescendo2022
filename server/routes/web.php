@@ -27,10 +27,11 @@ Route::group([
     $router->get('/', [OrganizationController::class,'index']);
 });
 
-
+// Pet profile
 Route::group(['prefix' => 'pets', 'middleware' => 'cors'], function (Router $router) {
     $router->get('/', [PetProfileController::class,'index']);
     $router->get('/{id}', [PetProfileController::class, 'show']);
+    $router->get('/org/{email}',[PetProfileController::class, 'byEmail']);
 });
 
 Route::group(['prefix' => 'posts'], function (Router $router) {

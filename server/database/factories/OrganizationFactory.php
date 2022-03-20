@@ -3,11 +3,7 @@
 namespace Database\Factories;
 
 use App\Support\Helpers;
-use File;
-use http\Url;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
-use Storage;
 
 class OrganizationFactory extends Factory
 {

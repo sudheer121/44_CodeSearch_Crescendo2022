@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Organization;
 use App\Models\PetProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -16,6 +17,17 @@ class PetProfileController extends Controller
     public function index(): Collection
     {
         return PetProfile::all();
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function byEmail(string $email): Collection
+    {
+        $org =  Organization::query()->with(['profiles'])->firstWhere('email', $email);
+        return $org->profiles;
     }
 
     /**
